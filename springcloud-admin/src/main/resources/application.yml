@@ -1,0 +1,12 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: admin-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka #链接注册中心集群
+  instance:
+    instance-id: admin-server                 #定义微服务的名称
+    prefer-ip-address: true                     #是否显示IP和端口

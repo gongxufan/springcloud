@@ -1,0 +1,10 @@
+# Project exclude paths
+/springcloud-api/target/
+/springcloud-config-client-9090/target/
+/springcloud-config-service-9080/target/
+/springcloud-consumer-8020/target/
+/springcloud-dashboard-9000/target/
+/springcloud-eureka-7000/target/
+/springcloud-provider-8001/target/
+/springcloud-zuul-9050/target/
+/zipkin-server/target/

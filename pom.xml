@@ -18,6 +18,7 @@
         <module>springcloud-config-service-9080</module>
         <module>springcloud-config-client-9090</module>
         <module>zipkin-server</module>
+        <module>springcloud-admin</module>
     </modules>
     <name>spring-cloud</name>
     <!--导入springBoot依赖包 -->
