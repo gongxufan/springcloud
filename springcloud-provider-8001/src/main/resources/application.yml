@@ -1,0 +1,46 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource   #引入druid数据源
+    #com.mysql.cj.jdbc.Driver是mysql-connector-java 6 中的特性，相比mysql-connector-java 5 多了一个时区：serverTimezone
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/db_test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: 123456
+
+  application:
+    name: provider-user                            #定义服务名称
+  zipkin:
+    base-url: zipkin-server
+  sleuth:
+    sampler:
+      probability: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka    #注册到指定的eureka
+  instance:
+    instance-id: provider-user-8001                #定义微服务的名称
+    prefer-ip-address: true                        #是否显示IP和端口
+
+#mybatis-plush配置
+mybatis-plus:
+  type-aliases-package: com.gxf.springcloud.pojo       #配置别名包路径
+  mapper-locations: classpath:/mybatis/mappers/*.xml #添加mapper映射文件
+  configuration:
+    map-underscore-to-camel-case: true                #开启驼峰映射规则
+
+feign:
+  hystrix:
+    enabled: true                        #启动熔断器机制
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000  #设定断路器超时时间
