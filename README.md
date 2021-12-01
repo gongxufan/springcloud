@@ -1,2 +1,2 @@
 # springcloud
-springcloud组件简单实用，实例代码。
+springcloud组件简单使用，实例代码。
